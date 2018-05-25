@@ -13,6 +13,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
+                        <li>{!! link_to_route('items.create', 'おみやげを検索') !!}</li>
                         <li>{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
                         
                         <li class="dropdown">
@@ -24,7 +25,6 @@
                             </ul>
                         </li>
                     @else
-                        <li>{!! link_to_route('signup', 'Signup') !!}</li>
                         <li>{!! link_to_route('login', 'Login') !!}</li>
                     @endif
                 </ul>

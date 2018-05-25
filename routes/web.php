@@ -31,6 +31,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 });
 
+
+//楽天検索用
+//Route::group(['middleware' => 'auth'], function () {
+//    Route::resource('gifts', 'GiftsController', ['only' => ['create']]);
+//});
+
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('gifts', 'GiftsController', ['only' => ['create']]);
+    Route::resource('items', 'ItemsController', ['only' => ['create']]);
 });
