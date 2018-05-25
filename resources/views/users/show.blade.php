@@ -16,7 +16,13 @@
                         {{ $count_like }}
                     </div>
                 </li>
+                <li>
+                        @if (Auth::check())
+                            @include('user_follow.follow_button')
+                        @endif
+                </li>
             </ul>
+            
         </div>
     </div>
     @include('items.items', ['items' => $items])
