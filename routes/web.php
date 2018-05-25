@@ -40,3 +40,12 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('items', 'ItemsController', ['only' => ['create']]);
 });
+
+
+//いいねボタン
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('items', 'ItemsController', ['only' => ['create', 'show']]);
+    Route::post('want', 'ItemUserController@like')->name('item_user.like');
+    Route::delete('want', 'ItemUserController@dont_like')->name('item_user.dont_like');
+    Route::resource('users', 'UsersController', ['only' => ['show']]);
+});

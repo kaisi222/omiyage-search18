@@ -84,4 +84,58 @@ class User extends Authenticatable
     public function is_following($userId) {
         return $this->followings()->where('follow_id', $userId)->exists();
     }
+    
+    
+    
+    
+    
+    public function items()
+    {
+        return $this->belongsToMany(Item::class)->withPivot('type')->withTimestamps();
+    }
+
+    public function like_items()
+    {
+        return $this->items()->where('type', 'like');
+    }
+
+    public function like($itemId)
+    {
+        // 既に Like しているかの確認
+        $exist = $this->is_liking($itemId);
+
+        if ($exist) {
+            // 既に Like していれば何もしない
+            return false;
+        } else {
+            // 未 Like であれば Like する
+            $this->items()->attach($itemId, ['type' => 'like']);
+            return true;
+        }
+    }
+
+    public function dont_like($itemId)
+    {
+        // 既に Like しているかの確認
+        $exist = $this->is_liking($itemId);
+
+        if ($exist) {
+            // 既に Like していれば Like を外す
+            \DB::delete("DELETE FROM item_user WHERE user_id = ? AND item_id = ? AND type = 'like'", [\Auth::user()->id, $itemId]);
+        } else {
+            // 未 Like であれば何もしない
+            return false;
+        }
+    }
+
+    public function is_liking($itemIdOrCode)
+    {
+        if (is_numeric($itemIdOrCode)) {
+            $item_id_exists = $this->like_items()->where('item_id', $itemIdOrCode)->exists();
+            return $item_id_exists;
+        } else {
+            $item_code_exists = $this->like_items()->where('code', $itemIdOrCode)->exists();
+            return $item_code_exists;
+        }
+    }
 }

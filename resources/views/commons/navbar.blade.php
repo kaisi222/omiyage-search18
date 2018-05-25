@@ -19,7 +19,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>{!! link_to_route('home','マイページ') !!}</li>
+                                <li>{!! link_to_route('home','ホーム') !!}</li>
+                                <li><a href="{{ route('users.show', Auth::user()->id) }}">マイページ</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>{!! link_to_route('logout', 'ログアウト') !!}</li>
                             </ul>

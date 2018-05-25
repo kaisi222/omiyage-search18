@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Item;
+
 class ItemsController extends Controller
 {
         public function create()
@@ -36,5 +38,19 @@ class ItemsController extends Controller
             'items' => $items,
         ]);
     }
+    
+    
+    //Like した商品の詳細ページを作成
+    public function show($id)
+    {
+      $item = Item::find($id);
+      $like_users = $item->like_users;
+      $count_like_users = $item->like_users()->count();
 
+      return view('items.show', [
+          'item' => $item,
+          'like_users' => $like_users,
+          'count_like_users' => $count_like_users,
+      ]);
+    }
 }

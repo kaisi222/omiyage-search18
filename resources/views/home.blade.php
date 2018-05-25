@@ -7,6 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ダッシュボード</div>
 
+                <?php /*
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -16,6 +17,15 @@
 
                     {{ Auth::user()->name }}はログイン中です。
                 </div>
+                */ ?>
+
+                <div class="panel-body">
+                    @section('content')
+                        @include('items.items')
+                        {!! $items->render() !!}
+                    @endsection
+                </div>
+                
             </div>
         </div>
     </div>

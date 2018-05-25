@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ef9337482987a34f347ac3439d43c62",
+    "content-hash": "373b8485e4dc99bec2f9fa9878782ff1",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -763,6 +763,39 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "kanazaca/counter-cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kanazaca/counter-cache.git",
+                "reference": "78212cbddd444546a4647c10242dea5131a02767"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kanazaca/counter-cache/zipball/78212cbddd444546a4647c10242dea5131a02767",
+                "reference": "78212cbddd444546a4647c10242dea5131a02767",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "kanazaca\\CounterCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hugo Neto",
+                    "email": "hugo.neto@grandesplanos.com"
+                }
+            ],
+            "description": "Package for Laravel to implement counter cache",
+            "time": "2016-05-25T01:35:59+00:00"
         },
         {
             "name": "laravel/framework",

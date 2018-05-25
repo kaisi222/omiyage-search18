@@ -12,7 +12,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.5.*",
         "rakuten-ws/rws-php-sdk": "1.*",
-        "thomaswelton/laravel-gravatar": "~1.0"
+        "thomaswelton/laravel-gravatar": "~1.0",
+        "kanazaca/counter-cache": "1.0.*",
     },
     "require-dev": {
         "filp/whoops": "~2.0",
