@@ -34,4 +34,28 @@ class UsersController extends Controller
             'count_like' => $count_like,
         ]);
     }
+    
+    
+    
+    // getでusers/id/editにアクセスされた場合の「更新画面表示処理」
+    public function edit($id)
+    {
+        $user = User::find($id);
+
+        return view('users.edit', [
+            'user' => $user,
+        ]);
+
+    }
+
+    // putまたはpatchでusers/idにアクセスされた場合の「更新処理」
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        return redirect('/home');
+    }
 }

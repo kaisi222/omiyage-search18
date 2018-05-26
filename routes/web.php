@@ -49,3 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('want', 'ItemUserController@dont_like')->name('item_user.dont_like');
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 });
+
+
+//ユーザー情報変更
+Route::resource('users', 'UsersController');

@@ -21,6 +21,7 @@
                             <ul class="dropdown-menu">
                                 <li>{!! link_to_route('home','ホーム') !!}</li>
                                 <li><a href="{{ route('users.show', Auth::user()->id) }}">マイページ</a></li>
+                                <li><a href="{{ route('users.edit', Auth::user()->id) }}">登録情報の変更</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>
                                     <a href="{{ route('logout') }}"
