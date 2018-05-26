@@ -22,7 +22,17 @@
                                 <li>{!! link_to_route('home','ホーム') !!}</li>
                                 <li><a href="{{ route('users.show', Auth::user()->id) }}">マイページ</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li>{!! link_to_route('logout', 'ログアウト') !!}</li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                     @else
