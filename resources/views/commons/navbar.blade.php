@@ -36,7 +36,8 @@
                             </ul>
                         </li>
                     @else
-                        <li>{!! link_to_route('login', 'Login') !!}</li>
+                        <li>{!! link_to_route('login', 'ログイン') !!}</li>
+                        <li>{!! link_to_route('register', '新規登録') !!}</li>
                     @endif
                 </ul>
             </div>
