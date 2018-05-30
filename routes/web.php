@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('items', 'ItemsController', ['only' => ['create']]);
 });
 
+// ランキング
+Route::get('ranking/like', 'RankingController@like')->name('ranking.like');
 
 //いいねボタン
 Route::group(['middleware' => 'auth'], function () {

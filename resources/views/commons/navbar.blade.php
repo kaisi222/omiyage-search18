@@ -14,6 +14,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
                         <li>{!! link_to_route('items.create', 'おみやげを検索') !!}</li>
+                        <li><a href="{{ route('ranking.like') }}">Likeランキング</a></li>
                         <li>{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
                         
                         <li class="dropdown">
